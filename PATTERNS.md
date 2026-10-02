@@ -32,10 +32,8 @@ If one entry lists several issue IDs, split its time evenly across them *(confir
 |------|-------------|
 | Abrechenbar / Ausweisbar | nearest **15 min** |
 | Intern (and all others) | nearest **5 min** |
-| Filler entry | **exact minutes** (absorbs remainder, no rounding) |
 
-The day total (BCS) = nearest **15 min** to the tracker total. Ask the user when the total is within ~7 min of the midpoint between two 15-min slots.
-`filler = BCS_total − sum(all other YT entries for the day)`
+There is no filler ticket. The day total (BCS) = nearest **15 min** to the tracker total; ask the user when it is within ~7 min of the midpoint between two 15-min slots. If rounded entries don't add up to BCS, ask which entry should absorb the difference.
 
 YT work items already booked for the day with no tracker equivalent count as real work: add their minutes to the tracker total before rounding to BCS.
 
@@ -43,7 +41,29 @@ YT work items already booked for the day with no tracker equivalent count as rea
 
 ## Rule 4 — Description text in YouTrack
 
-Write complete sentences; roughly one sentence per hour worked. Abrechenbar/Ausweisbar entries must be understandable to the client — use the YouTrack ticket for context if the tracker entry is sparse. Start from the tracker text (minus issue ID and billing hints), improve grammar, and let the user confirm before logging. Expand shorthands using `LOOKUP.md`.
+Descriptions are written **by Luca in a fixed schema**; Claude only drafts stubs, groups and renders.
+
+**Luca's input schema** (one line per ticket):
+```
+RX-0001: sentence about this specific feature; another related point, e.g. a bugfix - a different feature on the same ticket; e.g. database migration
+RX-0002: same schema
+```
+- `-` (space-dash-space) separates **groups** inside a ticket line. (Not the hyphen in the ticket ID.)
+- `;` separates the **points** inside a group.
+
+**Claude's job:**
+1. Per sync, list every ticket in a table with a **stub description** Claude came up with (from tracker text and the YouTrack ticket). Luca replies with his lines in the schema above.
+2. For each group, invent a **logical group name**. Render each ticket as markdown: bold group name, one bullet per `;`-point.
+3. Show the full rendered markdown overview (ticket, minutes, type, rendered text) for Luca to check. Fix wording on request.
+4. Do not rewrite Luca's content beyond light grammar fixes; expand shorthands from `LOOKUP.md`.
+
+---
+
+## Rule 4b — Read-only until explicit approval
+
+**Everything before the approval is READ-ONLY.** No POST/PUT/DELETE, no `log_work`, nothing that writes to YouTrack.
+Write calls are allowed **only after** Luca sends exactly: **`OK, an youtrack senden!!`**
+Any other "ok"/"yes" does not count. Approval covers only the overview that was shown; if anything changes afterwards, re-render and wait for approval again.
 
 ---
 
@@ -62,10 +82,11 @@ When unsure: ask. Always confirm client-facing work.
 3. PARSE   → extract issue IDs; resolve recurring items via LOOKUP.md
 4. GROUP   → consolidate by (issue_id, description_text)
 5. ROUND   → per Rule 3
-6. REVIEW  → table: Issue | Min | hh:mm | Type | Beschreibung
-             (always both min and hh:mm, always the type, always the planned text;
-              flag entries with no issue; propose filler; user confirms)
-7. LOG     → log each confirmed entry to YouTrack
+6. REVIEW  → (read-only) table of tickets with stub descriptions: Issue | Min | hh:mm | Type | Stub
+             → Luca answers in his schema (Rule 4) → Claude renders grouped markdown overview
+             (always both min and hh:mm, always the type; flag entries with no issue;
+              check day total vs. 7.7 h minimum per LOOKUP.md §8; no filler ticket exists)
+7. LOG     → ONLY after Luca writes "OK, an youtrack senden!!" (Rule 4b): log each entry to YouTrack
 8. VERIFY  → sum(logged) = BCS_total
 9. BCS     → remind user: https://bcs.schmutterer-partner.at → Tagesbuchen (neu) → Dauer
 10. COMMIT → add new patterns to PATTERNS.md / LOOKUP.md, commit, push
