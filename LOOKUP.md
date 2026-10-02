@@ -47,6 +47,11 @@ There is **no** daily catch-all ticket. Remaining minutes are not auto-assigned 
 ## 7. Billing exceptions & oddities
 - Praktikum-supervision ticket (SP-630) is no longer needed.
 
+## 7b. One-off day exceptions
+| Date | Exception | Effect |
+|---|---|---|
+| 2026-10-01 | First workday; ordered to come in at 9:30 | No 7.7 h minimum check; no Spaß mit Jause (9:00) that day. Short total (336 min seen in Toggl) is expected, don't ask for re-verification |
+
 ## 8. Work schedule (BCS target)
 - Typical day: starts 07:00–07:30, ends 15:10–16:00.
 - **Minimum 7.7 h (462 min) per day.**
