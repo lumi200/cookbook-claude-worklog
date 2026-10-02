@@ -25,7 +25,7 @@ Rule of thumb: SU / ORD / SMI entries are always confirmed with Luca before logg
 ## 2. Recurring meetings (same ticket every time)
 | Signal in tracker | Ticket | Type | Description text in YT | Notes |
 |---|---|---|---|---|
-| Spaß mit Jause / SMJ (~09:00 daily) | The day's MC ticket titled `Spaß mit JAUSE YYYY-M-D` — search YouTrack (read-only) for that date, e.g. 2026-9-13 = MC-3484 | Intern | Spaß mit Jause. | Daily; replaces the old "Spaß mit Support" (SMS). One new MC ticket per day (also weekends) |
+| Spaß mit Jause / SMJ (block starts ~09:00 with a prework phase; the meeting itself starts 09:15–09:30; the whole block is logged on this ticket) | The day's MC ticket titled `Spaß mit JAUSE YYYY-M-D` — search YouTrack (read-only) for that date, e.g. 2026-9-13 = MC-3484 | Intern | Spaß mit Jause. | Daily; replaces the old "Spaß mit Support" (SMS). One new MC ticket per day (also weekends) |
 
 ## 3. Abbreviations & synonyms
 | You write | Means / YT text | Ticket |
@@ -50,7 +50,7 @@ There is **no** daily catch-all ticket. Remaining minutes are not auto-assigned 
 ## 7b. One-off day exceptions
 | Date | Exception | Effect |
 |---|---|---|
-| 2026-10-01 | First workday; ordered to come in at 9:30 | No 7.7 h minimum check; no Spaß mit Jause (9:00) that day. Short total (336 min seen in Toggl) is expected, don't ask for re-verification |
+| 2026-10-01 | First workday; ordered to come in at 9:30 | No 7.7 h minimum check. Jause meeting still took place (started 9:30), only the 9:00 prework phase was skipped. Short total (336 min seen in Toggl) is expected, don't ask for re-verification |
 
 ## 8. Work schedule (BCS target)
 - Typical day: starts 07:00–07:30, ends 15:10–16:00.
