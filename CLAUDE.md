@@ -1,7 +1,7 @@
 # CLAUDE.md
 
 ## User
-Andreas Pieber · Europe/Vienna · YouTrack login: `api`
+Luca Nachbar · Europe/Vienna · YouTrack login: `lna`
 
 ---
 
@@ -37,7 +37,7 @@ Binary path after install: check with `which clockify-mcp` or look in the npm gl
 Get API key: clockify.me → Profile settings → Advanced → API key.
 
 ### 3. Verify connectivity
-Call `clockify_whoami` (Clockify MCP) and `GET /api/users/me` (YouTrack REST) — both must return Andreas Pieber. If either fails, stop and guide the user through fixing the config above.
+Call `clockify_whoami` (Clockify MCP) and `GET /api/users/me` (YouTrack REST) — both must return Luca Nachbar. If either fails, stop and guide the user through fixing the config above.
 
 ---
 
@@ -45,6 +45,8 @@ Call `clockify_whoami` (Clockify MCP) and `GET /api/users/me` (YouTrack REST) �
 
 - After every sync: **commit + push** without asking. Commit message summarises the day and any new patterns learned.
 - **PATTERNS.md is the source of truth** for all sync rules — read it at the start of every sync. Update it when new patterns are discovered.
+- **LOOKUP.md** holds personal meetings, abbreviations, contacts and billing defaults — read it too, and add new entries as they come up.
+- Time tracker is **Toggl** (`./fetch-toggl.sh YYYY-MM-DD`, needs `TOGGL_TOKEN`); the Clockify section below is legacy.
 - When in doubt about billing type, description, or ticket mapping: ask the user rather than guess.
 
 ---
@@ -56,7 +58,7 @@ Base: https://support.schmutterer-partner.at/api
 Token: read from ~/.claude.json → mcpServers.youtrack.headers.Authorization
 
 GET  /api/workItems?fields=id,date,duration(minutes),text,author(login),issue(id,idReadable,summary)
-       &startDate=YYYY-MM-DD&endDate=YYYY-MM-DD&author=api&$top=100
+       &startDate=YYYY-MM-DD&endDate=YYYY-MM-DD&author=lna&$top=100
 POST /api/issues/{issueId}/timeTracking/workItems
        body: {"date":<unix-ms>,"duration":{"minutes":N},"text":"...","type":{"id":"<typeId>","$type":"WorkItemType"}}
 POST /api/workItems/{id}   ← update existing work item
