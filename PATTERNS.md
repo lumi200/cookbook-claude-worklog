@@ -77,7 +77,9 @@ When unsure: ask. Always confirm client-facing work.
 ## Sync Workflow
 
 ```
-1. FETCH   → entries for the target date (Toggl: ./fetch-toggl.sh YYYY-MM-DD)
+1. FETCH   → entries for the target date(s): ONE call ./fetch-toggl.sh START [END]
+             (Toggl limit: 30 requests/hour — never loop per day, never re-fetch the same range;
+              reuse the output already in the conversation; project names come from a local cache)
 2. CHECK   → existing YouTrack work items for the date (mark ✅ already in YT)
 3. PARSE   → extract issue IDs; resolve recurring items via LOOKUP.md
 4. GROUP   → consolidate by (issue_id, description_text)

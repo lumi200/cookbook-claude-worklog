@@ -46,7 +46,7 @@ Call `clockify_whoami` (Clockify MCP) and `GET /api/users/me` (YouTrack REST) �
 - After every sync: **commit + push** without asking. Commit message summarises the day and any new patterns learned.
 - **PATTERNS.md is the source of truth** for all sync rules — read it at the start of every sync. Update it when new patterns are discovered.
 - **LOOKUP.md** holds personal meetings, abbreviations, contacts and billing defaults — read it too, and add new entries as they come up.
-- Time tracker is **Toggl** (`./fetch-toggl.sh YYYY-MM-DD`, needs `TOGGL_TOKEN`); the Clockify section below is legacy.
+- Time tracker is **Toggl** (`./fetch-toggl.sh YYYY-MM-DD`, needs `TOGGL_TOKEN`; **Toggl allows only 30 requests/hour** — one call per date range, never loop per day, reuse fetched data); the Clockify section below is legacy.
 - When in doubt about billing type, description, or ticket mapping: ask the user rather than guess.
 
 ---
