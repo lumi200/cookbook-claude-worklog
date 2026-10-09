@@ -25,13 +25,16 @@ Rule of thumb: SU / ORD / SMI entries are always confirmed with Luca before logg
 ## 2. Recurring meetings (same ticket every time)
 | Signal in tracker | Ticket | Type | Description text in YT | Notes |
 |---|---|---|---|---|
-| Spaß mit Jause / SMJ (block starts ~09:00 with a prework phase; the meeting itself starts 09:15–09:30; the whole block is logged on this ticket) | The day's MC ticket titled `Spaß mit JAUSE YYYY-M-D` — search YouTrack (read-only) for that date, e.g. 2026-9-13 = MC-3484 | Intern | Spaß mit Jause. | Daily; replaces the old "Spaß mit Support" (SMS). One new MC ticket per day (also weekends) |
+| Spaß mit Jause / SMJ (block starts ~09:00 with a prework phase; the meeting itself starts 09:15–09:30; the whole block is logged on this ticket) | The day's MC ticket titled `Spaß mit JAUSE YYYY-M-D` — search YouTrack (read-only) for that date, e.g. 2026-9-13 = MC-3484 | Intern | Spaß mit Jause (no trailing period; always on Jause tickets) | Daily; replaces the old "Spaß mit Support" (SMS). One new MC ticket per day (also weekends) |
 
 ## 3. Abbreviations & synonyms
 | You write | Means / YT text | Ticket |
 |---|---|---|
 | SMJ | Spaß mit Jause | MC group (see §2) |
 | SMS (old) | Spaß mit Support — legacy name, now Spaß mit Jause | MC group |
+
+| Toggl "Onboarding" | SP-705 "Luca Onboarding" | Intern | Onboarding | Confirmed 2026-10-01 |
+| Toggl "Superset Workflow Docs" / work that wasn't needed | MC-3142 "Arbeitsticket Luca Nachbar" | Intern | Superset-Dokumentation group, Luca's own wording | Confirmed 2026-10-01; MC-3142 is Luca's catch-all work ticket for work without a real ticket |
 
 ## 4. People, clients, contacts
 None. Names are not used in Luca's tickets/entries — no name → ticket mapping needed.
@@ -42,7 +45,7 @@ There is **no** daily catch-all ticket. Remaining minutes are not auto-assigned 
 ## 6. Naming conventions for tickets created per day/week/month
 | Pattern | Example | Used for |
 |---|---|---|
-| `Spaß mit JAUSE YYYY-M-D` (no zero padding) | `Spaß mit JAUSE 2026-8-10` (MC-3367) | Daily Jause meeting, one MC ticket per day |
+| `Spaß mit JAUSE YYYY-M-D` (no zero padding) | `Spaß mit JAUSE 2026-8-10` (MC-3367), 2026-10-1 = MC-3605 | Daily Jause meeting, one MC ticket per day |
 
 ## 7. Billing exceptions & oddities
 - Praktikum-supervision ticket (SP-630) is no longer needed.

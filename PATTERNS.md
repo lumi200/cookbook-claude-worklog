@@ -33,7 +33,7 @@ If one entry lists several issue IDs, split its time evenly across them *(confir
 | Abrechenbar / Ausweisbar | nearest **15 min** |
 | Intern (and all others) | nearest **5 min** |
 
-There is no filler ticket. The day total (BCS) = nearest **15 min** to the tracker total; ask the user when it is within ~7 min of the midpoint between two 15-min slots. If rounded entries don't add up to BCS, ask which entry should absorb the difference.
+There is no filler ticket. The day total (BCS) = nearest **15 min** to the tracker total; ask the user when it is within ~7 min of the midpoint between two 15-min slots. If rounded entries don't add up to BCS, ask which entry should absorb the difference (if Luca names only the BCS total, propose the entry and let the overview approval confirm; 2026-10-01: the 73-min entry went 75 → 70).
 
 YT work items already booked for the day with no tracker equivalent count as real work: add their minutes to the tracker total before rounding to BCS.
 
